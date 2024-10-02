@@ -5,11 +5,11 @@ Repositorio de la materia de Operaciones de aprendizaje automático - Tecnológi
 
 ## Miembros del equipo 
 
-José Francisco Monroy Ugarte - A01360926
-Helmy Andrea Moreno Navarro - A01793918
-Iván Alejandro Pedraza Macias - A01795371
-Carlos Alberto Reynoso González - A01793188
-Alejandro Emmanuel Silva Ortega -- A01794545
+- José Francisco Monroy Ugarte - A01360926
+- Helmy Andrea Moreno Navarro - A01793918
+- Iván Alejandro Pedraza Macias - A01795371
+- Carlos Alberto Reynoso González - A01793188
+- Alejandro Emmanuel Silva Ortega -- A01794545
 
 
 ## 🛠 Herramientas y Tecnologías Utilizadas 
