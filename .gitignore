@@ -1,3 +1,7 @@
 /data
 /.venv
 /1.3_Modeling_pipeline
+1.3_Modeling_pipeline/config.env
+1.3_Modeling_pipeline/config.env
+*.dll
+/*venv
