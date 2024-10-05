@@ -1,0 +1,44 @@
+artifact_path: model
+flavors:
+  python_function:
+    data: model.xgb
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.10.0
+  xgboost:
+    code: null
+    data: model.xgb
+    model_class: xgboost.sklearn.XGBClassifier
+    model_format: xgb
+    xgb_version: 2.1.1
+mlflow_version: 2.16.2
+model_size_bytes: 77608
+model_uuid: bde7d44f5fed47439dca05fbc21e495c
+run_id: 04ed079cbe7342eb9ca8d704d19058f7
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "long", "name": "behavior_eating", "required": true}, {"type":
+    "long", "name": "behavior_personalHygiene", "required": true}, {"type": "long",
+    "name": "intention_aggregation", "required": true}, {"type": "long", "name": "intention_commitment",
+    "required": true}, {"type": "long", "name": "attitude_consistency", "required":
+    true}, {"type": "long", "name": "attitude_spontaneity", "required": true}, {"type":
+    "long", "name": "norm_significantPerson", "required": true}, {"type": "long",
+    "name": "norm_fulfillment", "required": true}, {"type": "long", "name": "perception_vulnerability",
+    "required": true}, {"type": "long", "name": "perception_severity", "required":
+    true}, {"type": "long", "name": "motivation_strength", "required": true}, {"type":
+    "long", "name": "motivation_willingness", "required": true}, {"type": "long",
+    "name": "socialSupport_emotionality", "required": true}, {"type": "long", "name":
+    "socialSupport_appreciation", "required": true}, {"type": "long", "name": "socialSupport_instrumental",
+    "required": true}, {"type": "long", "name": "empowerment_knowledge", "required":
+    true}, {"type": "long", "name": "empowerment_abilities", "required": true}, {"type":
+    "long", "name": "empowerment_desires", "required": true}, {"type": "long", "name":
+    "behavior_sexualRisk", "required": true}]'
+  outputs: '[{"type": "long", "required": true}]'
+  params: null
+utc_time_created: '2024-10-05 05:55:49.904630'

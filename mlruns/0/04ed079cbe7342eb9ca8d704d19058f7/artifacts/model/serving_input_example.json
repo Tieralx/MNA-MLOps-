@@ -1,0 +1,48 @@
+{
+  "dataframe_split": {
+    "columns": [
+      "behavior_eating",
+      "behavior_personalHygiene",
+      "intention_aggregation",
+      "intention_commitment",
+      "attitude_consistency",
+      "attitude_spontaneity",
+      "norm_significantPerson",
+      "norm_fulfillment",
+      "perception_vulnerability",
+      "perception_severity",
+      "motivation_strength",
+      "motivation_willingness",
+      "socialSupport_emotionality",
+      "socialSupport_appreciation",
+      "socialSupport_instrumental",
+      "empowerment_knowledge",
+      "empowerment_abilities",
+      "empowerment_desires",
+      "behavior_sexualRisk"
+    ],
+    "data": [
+      [
+        13,
+        14,
+        10,
+        15,
+        6,
+        8,
+        1,
+        5,
+        5,
+        2,
+        15,
+        10,
+        12,
+        8,
+        15,
+        15,
+        15,
+        15,
+        10
+      ]
+    ]
+  }
+}
