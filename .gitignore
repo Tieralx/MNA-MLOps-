@@ -5,3 +5,4 @@
 1.3_Modeling_pipeline/config.env
 *.dll
 /*venv
+*.code-workspace
