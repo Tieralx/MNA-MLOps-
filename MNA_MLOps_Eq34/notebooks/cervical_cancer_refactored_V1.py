@@ -14,9 +14,8 @@ pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
 
 # Loading and exploring the data
-def fetch_data(ID):
-    original_ds = fetch_ucirepo(id=ID)
-    df = pd.concat([original_ds.data.features,original_ds.data.targets], axis = 1)
+def fetch_data(filepath):
+    df = pd.read_csv(filepath)
     return df
 
 def explore_data(data):
@@ -138,8 +137,8 @@ def cross_validate_model(model, X, y, cv=5):
     print("Average accuracy with CV:", np.mean(scores))
 
 # Main function to run the pipeline
-def main(ID):
-    data = fetch_data(ID)
+def main(filepath):
+    data = fetch_data(filepath)
     explore_data(data)
     plot_histograms(data)
     plot_correlation_matrix(data)
@@ -160,4 +159,4 @@ def main(ID):
     cross_validate_model(trained_model, data_pca.drop('y', axis=1), data_pca['y'])
 
 #Execute
-main(537)
+main(r".\data\raw\sobar-72.csv")
