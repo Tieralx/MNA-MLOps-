@@ -1,5 +1,9 @@
 base: 
   random_state: 42
+  pandas_display.max_rows: 500
+  pandas_display.max_columns: 500
+  pandas_display.width: 1000
+
 
 data:
   #load data
@@ -20,6 +24,8 @@ data_split:
 
 train:
   #train hyperparameters
+  solver: 'liblinear'
+  multi_class: 'ovr'
 
 reports:
   #metrics, images
