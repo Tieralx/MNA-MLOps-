@@ -27,7 +27,7 @@ class DataExplorer:
     @staticmethod
     def plot_correlation_matrix(data):
         plt.figure(figsize=(12, 8))
-        sns.heatmap(data.corr(), annot=True, fmt=".2f", cmap='coolwarm')
+        sns.heatmap(data.corr(), annot=True, fmt=".2f", cmap='viridis')
         plt.show()
     
     @staticmethod
@@ -105,7 +105,7 @@ class cervical_cancer_model:
         self.filepath = filepath
         self.model_pipeline = Pipeline(
             [
-           
+             
              ('regressor', LogisticRegression(random_state= 10, solver = 'liblinear', multi_class='ovr'))   
             ])
         self.X_train, self.X_test, self.y_train, self.y_test = [None] * 4
@@ -113,6 +113,9 @@ class cervical_cancer_model:
     def load_data(self):
         df = pd.read_csv(self.filepath)
         DataExplorer.explore_data(df)
+        DataExplorer.plot_histograms(df)
+        DataExplorer.plot_feature_relationships(df, 'ca_cervix')
+        DataExplorer.plot_correlation_matrix(df)
         self.data = df
         return self
     
@@ -134,7 +137,7 @@ class cervical_cancer_model:
         y_pred = self.model_pipeline.predict(self.X_test)
         cm = confusion_matrix(self.y_test, y_pred)
         disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=np.unique(self.y_test))
-        disp.plot(cmap='Blues', colorbar=False)
+        disp.plot(cmap='viridis', colorbar=False)
         plt.show()
         
         report = classification_report(self.y_test, y_pred)
