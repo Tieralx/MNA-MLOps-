@@ -147,14 +147,16 @@ class cervical_cancer_model:
         print("Average Accuracy with CV:", np.mean(scores))
         return self
     
+   
+# Función principal para ejecutar el pipeline
 def main():
-    filepath=r'MNA_MLOps_Eq34\data\raw\sobar-72.csv'
-    model =cervical_cancer_model(filepath)
+    filepath = 'sobar-72.csv'
+    model = cervical_cancer_model(filepath)
     (model.load_data()
-          .preprocess_pipe()
-          .train_model()
-          .evaluate_model()
-          .cross_validate_model())
+          .preprocess_pipe()  # Aqui se eliminan outliers y se normaliza el dataset completo antes del split
+          .train_model()  # Entrenar el modelo usando el pipeline que incluye escalado y PCA
+          .evaluate_model()  
+          .cross_validate_model())  
 
 if __name__ == '__main__':
     main()
