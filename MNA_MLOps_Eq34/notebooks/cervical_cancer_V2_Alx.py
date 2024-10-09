@@ -140,7 +140,8 @@ class cervical_cancer_model:
         disp.plot(cmap='viridis', colorbar=False)
         plt.show()
         
-        report = classification_report(self.y_test, y_pred)
+        target_names = ['without cervical cancer', 'with cervical cancer']
+        report = classification_report(self.y_test, y_pred, target_names=target_names, zero_division=0.0)
         print("Classification Report:")
         print(report)
         return self
