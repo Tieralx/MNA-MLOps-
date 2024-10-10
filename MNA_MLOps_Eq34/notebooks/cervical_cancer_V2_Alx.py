@@ -86,7 +86,7 @@ class preprocess_data:
         print("Aplicando operación: PCA")
         scaler = StandardScaler()
         X_scaled = scaler.fit_transform(self.drop(columns=[target]))  # Excluir la variable objetivo
-        # Aplicar PCA
+        # Aplicar PCAA
         pca = PCA().fit(X_scaled)
         # Calcular la varianza explicada acumulada
         explained_variance = np.cumsum(pca.explained_variance_ratio_)
