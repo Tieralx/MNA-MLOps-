@@ -97,6 +97,11 @@ class preprocess_data:
         df_pca = pd.DataFrame(X_pca, columns=pca_columns)
         df_pca['y'] = self[target].values
         return df_pca
+    
+    @staticmethod
+    def save_processed_dataset(self):
+        self.to_csv(r"MNA_MLOps_Eq34\data\processed\cervical_cancer_processed.csv", index=False)
+    
 
 
 
@@ -105,7 +110,7 @@ class cervical_cancer_model:
         self.filepath = filepath
         self.model_pipeline = Pipeline(
             [
-             
+             ('scaler', StandardScaler()),
              ('regressor', LogisticRegression(random_state= 10, solver = 'liblinear', multi_class='ovr'))   
             ])
         self.X_train, self.X_test, self.y_train, self.y_test = [None] * 4
@@ -123,8 +128,9 @@ class cervical_cancer_model:
         del_outliers = preprocess_data.delete_outliers(self.data)
         normalized = preprocess_data.normalization(del_outliers)
         applied_pca = preprocess_data.aplicar_pca(normalized,'ca_cervix',0.9)
+        preprocess_data.save_processed_dataset(applied_pca)
         X = applied_pca.drop('y', axis=1)
-        y = applied_pca['y']       
+        y = applied_pca['y']
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.3, random_state=42)
         return self
     
