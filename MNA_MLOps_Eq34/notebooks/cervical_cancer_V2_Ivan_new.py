@@ -88,15 +88,15 @@ class CervicalCancerModel:
         self.data = preprocessor.delete_outliers(self.data)  # Eliminar outliers
         self.data = preprocessor.normalization(self.data)  # Normalizar los datos
         
-        ####AQUI DEBERIAMOS DE AGREGAR UNA LOGICA  PARA AGREGAR EL CONJUNTO DE DATOS EN CARPETA DE PROCESSED
-
+        # Almacenamiento de conjunto de datos procesado
+        self.data.to_csv('MNA_MLOps_Eq34\data\processed\cervical_cancer_processed.csv',index=False)
 
         # Dividir los datos en características (X) y objetivo (y)
         X = self.data.drop(self.target, axis=1)
         y = self.data[self.target]
         
         # Dividir el dataset en conjuntos de entrenamiento y prueba
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.2, random_state=0)
         print('Dimensiones de conjuntos de entrenamiento:',self.X_train.shape,self.y_train.shape)
         print('Dimensiones de conjuntos de prueba:',self.X_test.shape,self.y_test.shape)
         return self
@@ -117,17 +117,17 @@ class CervicalCancerModel:
         y_pred = self.model_pipeline.predict(self.X_test)
         
         # Matriz de confusión
-        # cm = confusion_matrix(self.y_test, y_pred)
-        # disp = ConfusionMatrixDisplay(confusion_matrix=cm)
-        # disp.plot(cmap='Blues', colorbar=False)
-        # plt.show()
-
+        class_names = ['without cervical cancer', 'with cervical cancer']
+        cm = confusion_matrix(self.y_test, y_pred)
+        cm_df = pd.DataFrame(cm, index=class_names, columns=class_names)
+        print("Matriz de Confusión:")
+        print(cm_df)
+        
         # Reporte de clasificación
-        report = classification_report(self.y_test, y_pred)
+        target_names = ['without cervical cancer', 'with cervical cancer']
+        report = classification_report(self.y_test, y_pred,target_names=target_names, zero_division=0.0)
         print("Classification Report:")
         print(report)
-
-
 
         return self
     
