@@ -17,10 +17,10 @@ preprocessing:
   PCA_threshold: 0.90
 
 data_split:
-  test_size: 0.2
+  test_size: 0.3
   val_size: 0.5
   shuffle: True
-  random_state: 0
+  random_state: 4
 
 mlflow_config:
   uri: "http://localhost:5000"
@@ -31,9 +31,11 @@ mlflow_config:
 
 train:
   #train hyperparameters
-  solver: 'liblinear'
-  multi_class: 'ovr'
+  solver: 'newton-cg'
+  multi_class: 'auto'
   random_state: 10
+  max_iter: 1000
+
 
 reports:
   #metrics, images

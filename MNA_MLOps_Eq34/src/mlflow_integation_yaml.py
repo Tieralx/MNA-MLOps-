@@ -24,7 +24,7 @@ class CervicalCancerModel:
         self.model_pipeline = Pipeline([
             ('scaler', StandardScaler()),
             ('pca', PCA(n_components=config_params["preprocessing"]["PCA_threshold"])),  # Aplicar PCA para reducir dimensiones, basado en un umbral del 90%
-            ('classifier', LogisticRegression(solver=config_params["train"]["solver"], multi_class=config_params["train"]["multi_class"], random_state=config_params["train"]["random_state"]))
+            ('classifier', LogisticRegression(solver=config_params["train"]["solver"], multi_class=config_params["train"]["multi_class"], random_state=config_params["train"]["random_state"], max_iter=config_params["train"]["max_iter"] ))
         ])
         self.X_train, self.X_test, self.y_train, self.y_test = [None] * 4
 
