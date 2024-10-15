@@ -95,7 +95,7 @@ class CervicalCancerModel:
             print(cm_df)
             # Guardar la matriz de confusión como una imagen
             plt.figure(figsize=(8, 6))
-            sns.heatmap(cm_df, annot=True, fmt='d', cmap=config_params["reports"]["cmap"])
+            sns.heatmap(cm_df, annot=True, fmt='d', cmap=config_params["reports"]["cmap"], cbar = config_params["reports"]["colorbar"] ) 
             plt.title('Confusion Matrix')
             plt.ylabel('Actual')
             plt.xlabel('Predicted')
