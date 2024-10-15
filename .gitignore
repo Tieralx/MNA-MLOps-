@@ -5,3 +5,11 @@
 *.dll
 /*venv
 *.code-workspace
+mlruns/0/datasets/2a026987f00b504f3a86eb4cedc8e355/meta.yaml
+mlruns/0/e1c05e010d1b417d88f1ee69248b5dd2/meta.yaml
+mlruns/0/e1c05e010d1b417d88f1ee69248b5dd2/inputs/2aafd21ccb9ddeedc8d6a92cdba077f4/meta.yaml
+mlruns/0/e1c05e010d1b417d88f1ee69248b5dd2/tags/mlflow.runName
+mlruns/0/e1c05e010d1b417d88f1ee69248b5dd2/tags/mlflow.source.git.commit
+mlruns/0/e1c05e010d1b417d88f1ee69248b5dd2/tags/mlflow.source.name
+mlruns/0/e1c05e010d1b417d88f1ee69248b5dd2/tags/mlflow.source.type
+mlruns/0/e1c05e010d1b417d88f1ee69248b5dd2/tags/mlflow.user

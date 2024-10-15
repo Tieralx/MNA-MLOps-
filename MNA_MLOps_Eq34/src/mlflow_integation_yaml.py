@@ -31,6 +31,8 @@ class CervicalCancerModel:
     def load_data(self):
         # Cargar los datos
         self.data = pd.read_csv(self.filepath)
+             
+        mlflow.log_input(mlflow.data.from_pandas(self.data), context="raw_data")
         return self
 
     def preprocess_data(self):
@@ -51,6 +53,8 @@ class CervicalCancerModel:
         self.data[log_transform_columns] = self.data[log_transform_columns].apply(np.log1p)
         self.data[sqrt_transform_columns] = self.data[sqrt_transform_columns].apply(np.sqrt)
         
+        
+        mlflow.log_input(mlflow.data.from_pandas(self.data), context="preprocessed_data")
         # Dividir los datos en características (X) y objetivo (y)
         X = self.data.drop(self.target, axis=1)
         y = self.data[self.target]
@@ -61,14 +65,16 @@ class CervicalCancerModel:
 
     def train_model(self):
 
-        mlflow.set_tracking_uri(uri=config_params["mlflow_config"]["uri"])
-        # Create a new MLflow Experiment
-        mlflow.set_experiment(config_params["mlflow_config"]["experiment_name"])
-        with mlflow.start_run():
+        
+        
             # Registrar parámetros del modelo
             mlflow.log_param("scaler", "StandardScaler")
             mlflow.log_param("pca_n_components", config_params["preprocessing"]["PCA_threshold"])
             mlflow.log_param("classifier", "LogisticRegression")
+            mlflow.log_param("model_solver" ,config_params["train"]["solver"])
+            mlflow.log_param("model_multi_class", config_params["train"]["multi_class"]) 
+            mlflow.log_param("model_random_state",config_params["train"]["random_state"])
+            mlflow.log_param("model_max_iter", config_params["train"]["max_iter"])
             
             # Entrenar el modelo
             self.model_pipeline.fit(self.X_train, self.y_train)
@@ -125,11 +131,15 @@ class CervicalCancerModel:
             
 # Función principal para ejecutar el pipeline
 def main():
-    filepath = config_params["data"]["file_path"] 
-    model = CervicalCancerModel(filepath)
-    (model.load_data()
-          .preprocess_data()  # Aqui se eliminan outliers y se normaliza el dataset completo antes del split
-          .train_model())  # Entrenar el modelo usando el pipeline que incluye escalado y PCA
+    mlflow.set_tracking_uri(uri=config_params["mlflow_config"]["uri"])
+    # Create a new MLflow Experiment
+    mlflow.set_experiment(config_params["mlflow_config"]["experiment_name"])
+    with mlflow.start_run():
+        filepath = config_params["data"]["file_path"] 
+        model = CervicalCancerModel(filepath)
+        (model.load_data()
+            .preprocess_data()  # Aqui se eliminan outliers y se normaliza el dataset completo antes del split
+            .train_model())  # Entrenar el modelo usando el pipeline que incluye escalado y PCA
         
 
 if __name__ == '__main__':
