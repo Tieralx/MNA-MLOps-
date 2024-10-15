@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/824695583345891952/e5d768b6f5dd450681ad3f58904b803d/artifacts
+end_time: 1728956928013
+entry_point_name: ''
+experiment_id: '824695583345891952'
+lifecycle_stage: active
+run_id: e5d768b6f5dd450681ad3f58904b803d
+run_name: languid-lamb-278
+run_uuid: e5d768b6f5dd450681ad3f58904b803d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1728956927395
+status: 3
+tags: []
+user_id: ivan9

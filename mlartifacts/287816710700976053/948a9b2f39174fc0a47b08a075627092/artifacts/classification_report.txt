@@ -1,0 +1,8 @@
+                         precision    recall  f1-score   support
+
+without cervical cancer       0.88      0.88      0.88         8
+   with cervical cancer       0.75      0.75      0.75         4
+
+               accuracy                           0.83        12
+              macro avg       0.81      0.81      0.81        12
+           weighted avg       0.83      0.83      0.83        12

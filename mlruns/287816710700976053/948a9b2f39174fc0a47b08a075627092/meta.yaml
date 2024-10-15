@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/287816710700976053/948a9b2f39174fc0a47b08a075627092/artifacts
+end_time: 1728957166207
+entry_point_name: ''
+experiment_id: '287816710700976053'
+lifecycle_stage: active
+run_id: 948a9b2f39174fc0a47b08a075627092
+run_name: traveling-boar-507
+run_uuid: 948a9b2f39174fc0a47b08a075627092
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1728957165596
+status: 3
+tags: []
+user_id: ivan9

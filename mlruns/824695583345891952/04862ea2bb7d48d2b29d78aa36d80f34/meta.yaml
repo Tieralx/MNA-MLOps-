@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/824695583345891952/04862ea2bb7d48d2b29d78aa36d80f34/artifacts
+end_time: 1728954916673
+entry_point_name: ''
+experiment_id: '824695583345891952'
+lifecycle_stage: active
+run_id: 04862ea2bb7d48d2b29d78aa36d80f34
+run_name: righteous-whale-454
+run_uuid: 04862ea2bb7d48d2b29d78aa36d80f34
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1728954909217
+status: 3
+tags: []
+user_id: ivan9

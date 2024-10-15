@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/Comunicaciones%206/Documents/Andru/Eq_34/MNA-MLOps-/mlruns/0/93c2560f28424b9683dc1057cb4ce3ec/artifacts
+end_time: 1728956896152
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 93c2560f28424b9683dc1057cb4ce3ec
+run_name: melodic-mare-120
+run_uuid: 93c2560f28424b9683dc1057cb4ce3ec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1728956894775
+status: 4
+tags: []
+user_id: ivan9
