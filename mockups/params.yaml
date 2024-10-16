@@ -4,6 +4,7 @@ base:
   pandas_display.max_columns: 500
   pandas_display.width: 1000
 
+
 data:
   #load data
   file_path: 'sobar-72.csv'
@@ -22,10 +23,11 @@ data_split:
   random_state: 4
 
 mlflow_config:
-  uri: "http://127.0.0.1:8080"
+  uri: "http://localhost:5000"
   experiment_name: "cervical_cancer"
   model_name: "cervical_cancer_logistic_regressor"
   model_artifact_path: "sklearn-model"
+
 
 train:
   #train hyperparameters
@@ -34,12 +36,6 @@ train:
   random_state: 10
   max_iter: 1000
 
-grid_search:
-  param_grid:
-    classifier__solver: ['newton-cg', 'lbfgs', 'liblinear']
-    classifier__C: [0.1, 1, 10]  # Regularization parameter for Logistic Regression
-    classifier__max_iter: [100, 200, 500]  # Number of iterations
-  cv: 5  # Number of cross-validation folds
 
 reports:
   #metrics, images
@@ -57,3 +53,4 @@ reports:
 
   #cross_validation
   cv: 5
+  
