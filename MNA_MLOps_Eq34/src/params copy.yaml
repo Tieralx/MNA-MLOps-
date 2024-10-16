@@ -1,0 +1,59 @@
+base: 
+  random_state: 42
+  pandas_display.max_rows: 500
+  pandas_display.max_columns: 500
+  pandas_display.width: 1000
+
+data:
+  #load data
+  file_path: 'sobar-72.csv'
+  target_column: 'ca_cervix'
+
+preprocessing:
+  outlier_rem_Log_columns_threshold: -1
+  outliers_rem_sqrt_colums_lower_threshold: -1 
+  outliers_rem_sqrt_colums_higer_threshold: -0.5
+  PCA_threshold: 0.90
+
+data_split:
+  test_size: 0.3
+  val_size: 0.5
+  shuffle: True
+  random_state: 4
+
+mlflow_config:
+  uri: "http://127.0.0.1:8080"
+  experiment_name: "cervical_cancer"
+  model_name: "cervical_cancer_logistic_regressor"
+  model_artifact_path: "sklearn-model"
+
+train:
+  #train hyperparameters
+  solver: 'newton-cg'
+  multi_class: 'auto'
+  random_state: 10
+  max_iter: 1000
+
+grid_search:
+  param_grid:
+    classifier__solver: ['newton-cg', 'lbfgs', 'liblinear']
+    classifier__C: [0.1, 1, 10]  # Regularization parameter for Logistic Regression
+    classifier__max_iter: [100, 200, 500]  # Number of iterations
+  cv: 5  # Number of cross-validation folds
+
+reports:
+  #metrics, images
+
+  #color map
+  cmap: 'viridis'
+
+  #Clasification report
+  target_names: ['without cervical cancer', 'with cervical cancer']
+  clasification_report_zero_division: 0.0 
+  clasification_report_output_dict: True
+
+  #Confusion matrix
+  colorbar:  False 
+
+  #cross_validation
+  cv: 5
