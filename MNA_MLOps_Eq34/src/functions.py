@@ -1,12 +1,13 @@
 import numpy as np
 import pandas as pd
-from ucimlrepo import fetch_ucirepo
-import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn import metrics
+from ucimlrepo import fetch_ucirepo
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.metrics import classification_report, ConfusionMatrixDisplay 
+from sklearn.metrics import classification_report, ConfusionMatrixDisplay, log_loss
 #importar clase regresion logistica
 from sklearn.linear_model import LogisticRegression
 pd.set_option('display.max_rows', 500)
@@ -120,7 +121,11 @@ def model(X_train,y_train,X_val,y_val):
 def model_test_eval(X_test, y_test, model):
     y_pred_test = model.predict(X_test)
     return y_pred_test
-     
+
+def log_loss_eval(y_test, model, X_val):
+    y_pred_proba = model.predict_proba(X_val)  # Dos columnas para clases 0 y 1
+    loss = log_loss(y_test, y_pred_proba)
+    print(f"Log-Loss: {loss:.4f}")     
 
 def conf_matrix(y, y_pred):
     cnf_matrix = metrics.confusion_matrix(y, y_pred)
