@@ -7,6 +7,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+import xgboost as xgb
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 from sklearn.decomposition import PCA
 from mlflow.models import infer_signature
@@ -21,10 +23,13 @@ class CervicalCancerModel:
     def __init__(self, filepath, target=config_params["data"]["target_column"]):
         self.filepath = filepath
         self.target = target
+        if config_params["base"]["model_selected"] == 'lr': model_sel = LogisticRegression() 
+        elif config_params["base"]["model_selected"] == 'clf': model_sel = DecisionTreeClassifier()
+        elif config_params["base"]["model_selected"] == 'xgb': model_sel = xgb.XGBClassifier() 
         self.model_pipeline = Pipeline([
             ('scaler', StandardScaler()),
             ('pca', PCA(n_components=config_params["preprocessing"]["PCA_threshold"])),  # Aplicar PCA
-            ('classifier', LogisticRegression())
+            ('classifier', model_sel )
         ])
         self.X_train, self.X_test, self.y_train, self.y_test = [None] * 4
 
@@ -51,26 +56,35 @@ class CervicalCancerModel:
 
         self.data[log_transform_columns] = self.data[log_transform_columns].apply(np.log1p)
         self.data[sqrt_transform_columns] = self.data[sqrt_transform_columns].apply(np.sqrt)
+        self.data.to_csv(r"MNA_MLOps_Eq34\data\processed\cervical_cancer_processed.csv", index=False)
 
         mlflow.log_input(mlflow.data.from_pandas(self.data), context="preprocessed_data")
         # Dividir los datos en características (X) y objetivo (y)
         X = self.data.drop(self.target, axis=1)
         y = self.data[self.target]
-
+        
         # Dividir el dataset en conjuntos de entrenamiento y prueba
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
             X, y, test_size=config_params["data_split"]["test_size"], random_state=config_params["data_split"]["random_state"],
             shuffle=config_params["data_split"]["shuffle"]
         )
+        
         return self
 
     def train_model_with_grid_search(self):
         # Configurar Grid Search con los parámetros del YAML
-        param_grid = config_params["grid_search"]["param_grid"]
+        
+        if config_params["base"]["model_selected"] == 'lr': 
+            param_grid = config_params["grid_search"]["param_grid_lr"]
+        elif config_params["base"]["model_selected"] == 'clf':
+            param_grid = config_params["grid_search"]["param_grid_clf"]
+        elif config_params["base"]["model_selected"] == 'xgb': 
+            param_grid = config_params["grid_search"]["param_grid_xgb"]
+        #param_grid = config_params["grid_search"]["param_grid_xgb"]
         grid_search = GridSearchCV(self.model_pipeline, param_grid, cv=config_params["grid_search"]["cv"], scoring=config_params["grid_search"]["scoring"])
 
         # Iniciar un experimento en MLflow
-        mlflow.log_param("grid_search_params", param_grid)
+        mlflow.log_param(config_params["base"]["model_selected"] + "_grid_search_params" , param_grid)
         mlflow.log_param("cv_folds", config_params["grid_search"]["cv"])
 
         # Entrenar el modelo con búsqueda en cuadrícula
@@ -79,7 +93,7 @@ class CervicalCancerModel:
         # Registrar los resultados de todas las combinaciones
         cv_results = grid_search.cv_results_
         for i in range(len(cv_results['params'])):
-            run_name = f"GridSearch Run {i+1}"
+            run_name = f" GridSearch Run {i+1} " + config_params["base"]["model_selected"]
             with mlflow.start_run(nested=True, run_name=run_name):
                 # Registrar los parámetros de la combinación actual
                 mlflow.log_params(cv_results['params'][i])
@@ -93,10 +107,10 @@ class CervicalCancerModel:
                 report = classification_report(self.y_test, y_pred, target_names=config_params["reports"]["target_names"],
                                                zero_division=config_params["reports"]["clasification_report_zero_division"],
                                                output_dict=config_params["reports"]["clasification_report_output_dict"])
-                mlflow.log_metric("Accuracy", report['accuracy'])
-                mlflow.log_metric("Precision", report['macro avg']['precision'])
-                mlflow.log_metric("Recall", report['macro avg']['recall'])
-                mlflow.log_metric("F1 score", report['macro avg']['f1-score'])
+                mlflow.log_metric("accuracy", report['accuracy'])
+                mlflow.log_metric("precision", report['macro avg']['precision'])
+                mlflow.log_metric("recall", report['macro avg']['recall'])
+                mlflow.log_metric("F1-score", report['macro avg']['f1-score'])
 
         # Obtener el mejor modelo y sus parámetros
         best_model = grid_search.best_estimator_
@@ -110,6 +124,9 @@ class CervicalCancerModel:
         # Predecir con el mejor modelo
         y_pred = best_model.predict(self.X_test)
         signature = infer_signature(self.X_test, y_pred)
+        
+        self.X_test.to_csv(r"MNA_MLOps_Eq34\data\processed\X_test_processed.csv", index=False)
+        self.y_test.to_csv(r"MNA_MLOps_Eq34\data\processed\y_test_processed.csv", index=False) 
 
         # Registrar accuracy
         accuracy = accuracy_score(self.y_test, y_pred)
@@ -131,7 +148,7 @@ class CervicalCancerModel:
             sk_model=best_model,
             artifact_path=config_params["mlflow_config"]["model_artifact_path"],
             signature=signature,
-            registered_model_name=config_params["mlflow_config"]["model_name"]
+            registered_model_name=config_params["mlflow_config"]["model_name"] + config_params["base"]["model_selected"]
         )
 
 # Función principal para ejecutar el pipeline
