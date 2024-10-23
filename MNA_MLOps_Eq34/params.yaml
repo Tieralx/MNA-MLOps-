@@ -1,0 +1,17 @@
+data:
+  filepath: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\raw\sobar-72.csv
+  processed: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\
+  models: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\models\
+  reports: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\
+  syspath: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\
+  
+#models:
+#  logistic_regression:
+#    max_iter: 1000
+#  random_forest:
+#    n_estimators: 100
+#    max_depth: 10
+#
+#mlflow:
+#  experiment_name: "Wine Quality Analysis V1"
+#  tracking_uri: "http://127.0.0.1:5000"
