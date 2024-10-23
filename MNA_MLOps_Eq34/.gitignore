@@ -171,3 +171,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 #src/mlflow_integation_yaml.py
+
+#DVC
+/dvc.yaml
+/params.yaml

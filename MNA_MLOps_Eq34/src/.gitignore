@@ -1,2 +1,7 @@
 /cervical_cancer_refactored_v2.py
 /cervical_cancer_refactored_V1.py
+/data_load.py
+/evaluate.py
+/preprocess.py
+/train.py
+/params.yaml
