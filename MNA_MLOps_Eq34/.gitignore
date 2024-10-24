@@ -173,5 +173,3 @@ cython_debug/
 #src/mlflow_integation_yaml.py
 
 #DVC
-/dvc.yaml
-/params.yaml
