@@ -160,7 +160,7 @@ def main():
         model = CervicalCancerModel(filepath)
         (model.load_data()
              .preprocess_data()
-             .train_model_with_grid_search())
+             .train_model_with_grid_search())             
 
 if __name__ == '__main__':
     main()
