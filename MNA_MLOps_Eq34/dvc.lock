@@ -110,7 +110,7 @@ stages:
     outs:
     - path: models\clf_model.pkl
       hash: md5
-      md5: 4978e3cd48cb104863c03d87acd8e648
+      md5: 45c6d89a7db5e2fd9d0fd975970c6130
       size: 2649
   train_xgb:
     cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\train.py
@@ -145,6 +145,7 @@ stages:
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\models\lr_model.pkl C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_test.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_test.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\lr_evaluation.txt
+      lr
     deps:
     - path: data\processed\X_test.csv
       hash: md5
@@ -160,19 +161,24 @@ stages:
       size: 1855
     - path: src\evaluate.py
       hash: md5
-      md5: ba63098c154858286d352d694a60f7fc
-      size: 1074
+      md5: a91c161bbb9f993f61a6ad9215c5f30e
+      size: 2080
     outs:
+    - path: metrics\lr_metrics.json
+      hash: md5
+      md5: 673a3bc018b73b0e01a0b353bf7ccd90
+      size: 162
     - path: reports\lr_evaluation.txt
       hash: md5
-      md5: d057e3a928eb8f836fe90cd8a4308234
-      size: 398
+      md5: a7919789236099bdf7c8f8d1ea4eeb6e
+      size: 529
   evaluate_clf:
     cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\evaluate.py
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\models\clf_model.pkl
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_test.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_test.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\clf_evaluation.txt
+      clf
     deps:
     - path: data\processed\X_test.csv
       hash: md5
@@ -184,23 +190,28 @@ stages:
       size: 65
     - path: models\clf_model.pkl
       hash: md5
-      md5: 4978e3cd48cb104863c03d87acd8e648
+      md5: 45c6d89a7db5e2fd9d0fd975970c6130
       size: 2649
     - path: src\evaluate.py
       hash: md5
-      md5: ba63098c154858286d352d694a60f7fc
-      size: 1074
+      md5: a91c161bbb9f993f61a6ad9215c5f30e
+      size: 2080
     outs:
+    - path: metrics\clf_metrics.json
+      hash: md5
+      md5: 80e7312ed3c0623741d2ed72b656a125
+      size: 148
     - path: reports\clf_evaluation.txt
       hash: md5
-      md5: 41042213975ac6d4b3206d482c8512b3
-      size: 398
+      md5: 2ac5237c1d99047c4644f20df30043cb
+      size: 516
   evaluate_xgb:
     cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\evaluate.py
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\models\xgb_model.pkl
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_test.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_test.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\xgb_evaluation.txt
+      xgb
     deps:
     - path: data\processed\X_test.csv
       hash: md5
@@ -216,10 +227,14 @@ stages:
       size: 13230
     - path: src\evaluate.py
       hash: md5
-      md5: ba63098c154858286d352d694a60f7fc
-      size: 1074
+      md5: a91c161bbb9f993f61a6ad9215c5f30e
+      size: 2080
     outs:
+    - path: metrics\xgb_metrics.json
+      hash: md5
+      md5: 6e1bab68bd19792fc0516c2dae808b57
+      size: 163
     - path: reports\xgb_evaluation.txt
       hash: md5
-      md5: fe853c96df40b462781f96a8d67c62a3
-      size: 398
+      md5: 8c7c102fb305f7f705679839eb662b89
+      size: 515

@@ -1,5 +1,5 @@
 outs:
-- md5: 9ce0d8b33aab266f47d8bbc14ecb3d81
-  size: 6252
+- md5: 0ea5515e66f45df7c6127c8084b68daf
+  size: 5054
   hash: md5
   path: cervical_cancer_refactored_v2.py

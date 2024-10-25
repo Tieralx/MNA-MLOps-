@@ -1,0 +1,8 @@
+{
+  "Evaluate clf": {
+    "accuracy": 0.7777777777777778,
+    "presicion": 0.8823529411764706,
+    "recall": 0.6,
+    "F1-Score": 0.6
+  }
+}
