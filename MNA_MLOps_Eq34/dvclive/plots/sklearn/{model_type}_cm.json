@@ -1,0 +1,74 @@
+[
+    {
+        "actual": "behavior_sexualRisk",
+        "predicted": "0"
+    },
+    {
+        "actual": "behavior_eating",
+        "predicted": "0"
+    },
+    {
+        "actual": "behavior_personalHygine",
+        "predicted": "0"
+    },
+    {
+        "actual": "intention_aggregation",
+        "predicted": "0"
+    },
+    {
+        "actual": "intention_commitment",
+        "predicted": "0"
+    },
+    {
+        "actual": "attitude_consistency",
+        "predicted": "0"
+    },
+    {
+        "actual": "attitude_spontaneity",
+        "predicted": "0"
+    },
+    {
+        "actual": "norm_significantPerson",
+        "predicted": "0"
+    },
+    {
+        "actual": "norm_fulfillment",
+        "predicted": "0"
+    },
+    {
+        "actual": "perception_vulnerability",
+        "predicted": "0"
+    },
+    {
+        "actual": "perception_severity",
+        "predicted": "0"
+    },
+    {
+        "actual": "motivation_strength",
+        "predicted": "0"
+    },
+    {
+        "actual": "motivation_willingness",
+        "predicted": "0"
+    },
+    {
+        "actual": "socialSupport_emotionality",
+        "predicted": "0"
+    },
+    {
+        "actual": "socialSupport_appreciation",
+        "predicted": "0"
+    },
+    {
+        "actual": "socialSupport_instrumental",
+        "predicted": "0"
+    },
+    {
+        "actual": "empowerment_knowledge",
+        "predicted": "0"
+    },
+    {
+        "actual": "empowerment_abilities",
+        "predicted": "0"
+    }
+]

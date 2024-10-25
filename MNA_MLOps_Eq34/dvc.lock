@@ -161,8 +161,8 @@ stages:
       size: 1855
     - path: src\evaluate.py
       hash: md5
-      md5: a91c161bbb9f993f61a6ad9215c5f30e
-      size: 2080
+      md5: 193f94b35a93f2ef9ce9fb6bd72a0e93
+      size: 1932
     outs:
     - path: metrics\lr_metrics.json
       hash: md5
@@ -194,8 +194,8 @@ stages:
       size: 2649
     - path: src\evaluate.py
       hash: md5
-      md5: a91c161bbb9f993f61a6ad9215c5f30e
-      size: 2080
+      md5: 193f94b35a93f2ef9ce9fb6bd72a0e93
+      size: 1932
     outs:
     - path: metrics\clf_metrics.json
       hash: md5
@@ -227,8 +227,8 @@ stages:
       size: 13230
     - path: src\evaluate.py
       hash: md5
-      md5: a91c161bbb9f993f61a6ad9215c5f30e
-      size: 2080
+      md5: 193f94b35a93f2ef9ce9fb6bd72a0e93
+      size: 1932
     outs:
     - path: metrics\xgb_metrics.json
       hash: md5

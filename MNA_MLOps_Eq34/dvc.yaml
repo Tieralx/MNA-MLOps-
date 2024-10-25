@@ -77,15 +77,6 @@ stages:
     - ${data.syspath}metrics\lr_metrics.json:
         cache: false
 
-    #plots:
-    #- ${data.plots}\lr_cm.json:
-    #    template: confusion
-    #    x: actual
-    #    y: predicted
-    #    title: LR Confusion Matrix
-    #    x_label: True Label
-    #    y_label: Predicted Label
-    #    cache: false
 
   evaluate_clf:
     cmd: python ${data.syspath}src\evaluate.py ${data.models}clf_model.pkl ${data.processed}X_test.csv
@@ -102,15 +93,7 @@ stages:
     - ${data.syspath}metrics\clf_metrics.json:
         cache: false
 
-    #plots:
-    #- ${data.plots}clf_cm.json:
-    #    template: confusion
-    #    x: actual
-    #    y: predicted
-    #    title: CLF Confusion Matrix
-    #    x_label: True Label
-    #    y_label: Predicted Label
-    #    cache: false
+  
 
 
   evaluate_xgb:
@@ -128,14 +111,4 @@ stages:
     - ${data.syspath}metrics\xgb_metrics.json:
         cache: false
 
-    #plots:
-    #- ${data.plots}xgb_cm.json:
-    #    template: confusion
-    #    x: actual
-    #    y: predicted
-    #    title: XGB Confusion Matrix
-    #    x_label: True Label
-    #    y_label: Predicted Label
-    #    cache: false
-
-
+    

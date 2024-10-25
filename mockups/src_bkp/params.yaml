@@ -1,0 +1,98 @@
+base: 
+  random_state: 42
+  pandas_display.max_rows: 500
+  pandas_display.max_columns: 500
+  pandas_display.width: 1000
+  model_selected: 'clf' #options: 'lr', 'clf', 'xgb'
+
+data:
+  #load data
+  file_path: 'sobar-72.csv'
+  target_column: 'ca_cervix'
+ 
+
+preprocessing:
+  outlier_rem_Log_columns_threshold: -1
+  outliers_rem_sqrt_colums_lower_threshold: -1 
+  outliers_rem_sqrt_colums_higer_threshold: -0.5
+  PCA_threshold: 0.90
+
+data_split:
+  test_size: 0.3
+  val_size: 0.5
+  shuffle: True
+  random_state: 4
+
+mlflow_config:
+  uri: "http://127.0.0.1:5000"
+  experiment_name: "cervical_cancer_current"
+  model_name: "cervical_cancer_"
+  model_artifact_path: "sklearn-model"
+
+train:
+  #train hyperparameters
+    solver: 'newton-cholesky'
+    random_state: 4
+    max_iter: 500
+    penalty: 'l2'
+    C: 1
+
+grid_search:
+  lr_params:
+    solver: 'newton-cholesky'
+    C: 0.1  # Regularization parameter for Logistic Regression
+    max_iter: 1000 # Number of iterations
+    penalty: 'l2'
+  
+  clf_params:
+    criterion: 'entropy' 
+    max_depth: 100
+    splitter: 'best'
+
+  xgb_params:
+     objective: 'binary:logistic'
+     eval_metric: "logloss"
+     max_depth: 10
+     learning_rate: 0.1
+     n_estimators: 10
+
+  param_grid_lr:
+    classifier__solver: ['liblinear', 'newton-cholesky']
+    classifier__C: [0.1, 1, 10]  # Regularization parameter for Logistic Regression
+    classifier__max_iter: [100, 1000] # Number of iterations
+    classifier__penalty: ['l2']
+  
+  param_grid_clf:
+    classifier__criterion: ['gini', 'entropy', 'log_loss'] 
+    classifier__max_depth: [none, 100]
+    classifier__splitter: ['best', 'random']
+
+  param_grid_xgb:
+     classifier__objective: ['binary:logistic', 'binary:logitraw', 'binary:hinge']
+     classifier__eval_metric: ["logloss", "mae", "mape"]
+     classifier__max_depth: [3, 10, 50]
+     classifier__learning_rate: [0.1, 0.001]
+     classifier__n_estimators: [10, 100] 
+
+
+
+ 
+  cv: 5  # Number of cross-validation folds
+  scoring: 'accuracy' 
+
+reports:
+  #metrics, images
+
+  #color map
+  cmap: 'viridis'
+
+  #Clasification report
+  target_names: ['without cervical cancer', 'with cervical cancer']
+  clasification_report_zero_division: 0.0 
+  clasification_report_output_dict: True
+
+  #Confusion matrix
+  colorbar:  False 
+
+  #cross_validation
+  cv: 5
