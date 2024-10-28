@@ -37,24 +37,24 @@ stages:
       size: 2385
     - path: src\preprocess.py
       hash: md5
-      md5: 5fbf8156f34c4da2c0b22e447478dac7
-      size: 2508
+      md5: aa09db355e4b7deeca7cb22b997c376f
+      size: 2520
     outs:
     - path: data\processed\X_test.csv
       hash: md5
-      md5: a95b0503e6e17a324efc5a02b715ee86
-      size: 3515
+      md5: 9b456f8d3b4c2bb2b370a01ba927132c
+      size: 3466
     - path: data\processed\X_train.csv
       hash: md5
-      md5: e14aa0bd65130890267c6941a813fdde
-      size: 7301
+      md5: 0665a243a07d8f147a89e8656520e7a4
+      size: 7350
     - path: data\processed\y_test.csv
       hash: md5
-      md5: ea0d387d223e5d09bac5436ec49d143a
+      md5: 9aa504b8f958cdd615cb98fb3b7eb355
       size: 65
     - path: data\processed\y_train.csv
       hash: md5
-      md5: 19880ec2dbd93dfe9d5fb9ff9087e43d
+      md5: 7b915b09ce8a9a98b2f392cc6c933367
       size: 134
   train_logistic:
     cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\train.py
@@ -65,11 +65,11 @@ stages:
     deps:
     - path: data\processed\X_train.csv
       hash: md5
-      md5: e14aa0bd65130890267c6941a813fdde
-      size: 7301
+      md5: 0665a243a07d8f147a89e8656520e7a4
+      size: 7350
     - path: data\processed\y_train.csv
       hash: md5
-      md5: 19880ec2dbd93dfe9d5fb9ff9087e43d
+      md5: 7b915b09ce8a9a98b2f392cc6c933367
       size: 134
     - path: src\params.yaml
       hash: md5
@@ -77,15 +77,15 @@ stages:
       size: 2385
     - path: src\train.py
       hash: md5
-      md5: 8399f297257d63f6a18c9dfd0b98f40b
-      size: 1689
+      md5: 59f541ef15421ef38f14639003ed0a0b
+      size: 1862
     outs:
     - path: models\lr_model.pkl
       hash: md5
-      md5: 31d2c2306a2a6299670d16d9f625cf50
+      md5: 0713d8fb11ab04451b2bc69426d3cd89
       size: 1855
   train_clf:
-    cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\\src\train.py
+    cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\train.py
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\params.yaml 
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_train.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_train.csv
@@ -93,11 +93,11 @@ stages:
     deps:
     - path: data\processed\X_train.csv
       hash: md5
-      md5: e14aa0bd65130890267c6941a813fdde
-      size: 7301
+      md5: 0665a243a07d8f147a89e8656520e7a4
+      size: 7350
     - path: data\processed\y_train.csv
       hash: md5
-      md5: 19880ec2dbd93dfe9d5fb9ff9087e43d
+      md5: 7b915b09ce8a9a98b2f392cc6c933367
       size: 134
     - path: src\params.yaml
       hash: md5
@@ -105,27 +105,27 @@ stages:
       size: 2385
     - path: src\train.py
       hash: md5
-      md5: 8399f297257d63f6a18c9dfd0b98f40b
-      size: 1689
+      md5: 59f541ef15421ef38f14639003ed0a0b
+      size: 1862
     outs:
     - path: models\clf_model.pkl
       hash: md5
-      md5: 45c6d89a7db5e2fd9d0fd975970c6130
-      size: 2649
+      md5: 2a468f3ed26cfadc2f7bd8da1bd716f5
+      size: 2809
   train_xgb:
     cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\train.py
-      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\params.yaml 
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\\params.yaml 
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_train.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_train.csv
       xgb
     deps:
     - path: data\processed\X_train.csv
       hash: md5
-      md5: e14aa0bd65130890267c6941a813fdde
-      size: 7301
+      md5: 0665a243a07d8f147a89e8656520e7a4
+      size: 7350
     - path: data\processed\y_train.csv
       hash: md5
-      md5: 19880ec2dbd93dfe9d5fb9ff9087e43d
+      md5: 7b915b09ce8a9a98b2f392cc6c933367
       size: 134
     - path: src\params.yaml
       hash: md5
@@ -133,108 +133,315 @@ stages:
       size: 2385
     - path: src\train.py
       hash: md5
-      md5: 8399f297257d63f6a18c9dfd0b98f40b
-      size: 1689
+      md5: 59f541ef15421ef38f14639003ed0a0b
+      size: 1862
     outs:
     - path: models\xgb_model.pkl
       hash: md5
-      md5: 68954e5a07b5e87d2a987d6157898180
-      size: 13230
+      md5: 2280acd3451a06851990677a8cf5d56f
+      size: 13366
   evaluate_lr:
     cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\evaluate.py
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\models\lr_model.pkl C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_test.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_test.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\lr_evaluation.txt
-      lr
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\lr_pred.csv lr
     deps:
     - path: data\processed\X_test.csv
       hash: md5
-      md5: a95b0503e6e17a324efc5a02b715ee86
-      size: 3515
+      md5: 9b456f8d3b4c2bb2b370a01ba927132c
+      size: 3466
     - path: data\processed\y_test.csv
       hash: md5
-      md5: ea0d387d223e5d09bac5436ec49d143a
+      md5: 9aa504b8f958cdd615cb98fb3b7eb355
       size: 65
     - path: models\lr_model.pkl
       hash: md5
-      md5: 31d2c2306a2a6299670d16d9f625cf50
+      md5: 0713d8fb11ab04451b2bc69426d3cd89
       size: 1855
     - path: src\evaluate.py
       hash: md5
-      md5: 193f94b35a93f2ef9ce9fb6bd72a0e93
-      size: 1932
+      md5: a7dbeb92ed543359ce749adc6ebd8b23
+      size: 2195
     outs:
     - path: metrics\lr_metrics.json
       hash: md5
-      md5: 673a3bc018b73b0e01a0b353bf7ccd90
-      size: 162
+      md5: 06db6496b5fef68eb604725bdb976535
+      size: 177
     - path: reports\lr_evaluation.txt
       hash: md5
-      md5: a7919789236099bdf7c8f8d1ea4eeb6e
-      size: 529
+      md5: a044276a1b64fa7058101fbce801dfab
+      size: 574
+    - path: reports\lr_pred.csv
+      hash: md5
+      md5: a8183685af7a5429373475497720271c
+      size: 103
   evaluate_clf:
     cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\evaluate.py
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\models\clf_model.pkl
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_test.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_test.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\clf_evaluation.txt
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\clf_pred.csv
       clf
     deps:
     - path: data\processed\X_test.csv
       hash: md5
-      md5: a95b0503e6e17a324efc5a02b715ee86
-      size: 3515
+      md5: 9b456f8d3b4c2bb2b370a01ba927132c
+      size: 3466
     - path: data\processed\y_test.csv
       hash: md5
-      md5: ea0d387d223e5d09bac5436ec49d143a
+      md5: 9aa504b8f958cdd615cb98fb3b7eb355
       size: 65
     - path: models\clf_model.pkl
       hash: md5
-      md5: 45c6d89a7db5e2fd9d0fd975970c6130
-      size: 2649
+      md5: 2a468f3ed26cfadc2f7bd8da1bd716f5
+      size: 2809
     - path: src\evaluate.py
       hash: md5
-      md5: 193f94b35a93f2ef9ce9fb6bd72a0e93
-      size: 1932
+      md5: 44e9130d04f87a224fbf74a41f66680e
+      size: 2158
     outs:
     - path: metrics\clf_metrics.json
       hash: md5
-      md5: 80e7312ed3c0623741d2ed72b656a125
-      size: 148
+      md5: 60edbaafefd683883f5fef52704f77c0
+      size: 165
     - path: reports\clf_evaluation.txt
       hash: md5
-      md5: 2ac5237c1d99047c4644f20df30043cb
-      size: 516
+      md5: 5cb074e6092a25211e2052c85628c5fa
+      size: 518
+    - path: reports\clf_pred.csv
+      hash: md5
+      md5: 91172b1fcc515ca1088c3bedac6920e9
+      size: 103
   evaluate_xgb:
     cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\evaluate.py
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\models\xgb_model.pkl
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_test.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_test.csv
       C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\xgb_evaluation.txt
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\xgb_pred.csv
       xgb
     deps:
     - path: data\processed\X_test.csv
       hash: md5
-      md5: a95b0503e6e17a324efc5a02b715ee86
-      size: 3515
+      md5: 9b456f8d3b4c2bb2b370a01ba927132c
+      size: 3466
     - path: data\processed\y_test.csv
       hash: md5
-      md5: ea0d387d223e5d09bac5436ec49d143a
+      md5: 9aa504b8f958cdd615cb98fb3b7eb355
       size: 65
     - path: models\xgb_model.pkl
       hash: md5
-      md5: 68954e5a07b5e87d2a987d6157898180
-      size: 13230
+      md5: 2280acd3451a06851990677a8cf5d56f
+      size: 13366
     - path: src\evaluate.py
       hash: md5
-      md5: 193f94b35a93f2ef9ce9fb6bd72a0e93
-      size: 1932
+      md5: 44e9130d04f87a224fbf74a41f66680e
+      size: 2158
     outs:
     - path: metrics\xgb_metrics.json
       hash: md5
-      md5: 6e1bab68bd19792fc0516c2dae808b57
-      size: 163
+      md5: 615d7a3f361b33878767f7c7fc8e66a4
+      size: 165
     - path: reports\xgb_evaluation.txt
       hash: md5
-      md5: 8c7c102fb305f7f705679839eb662b89
-      size: 515
+      md5: 5cb074e6092a25211e2052c85628c5fa
+      size: 518
+    - path: reports\xgb_pred.csv
+      hash: md5
+      md5: 91172b1fcc515ca1088c3bedac6920e9
+      size: 103
+  train@lr:
+    cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\train.py
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\params.yaml 
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_train.csv
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_train.csv  lr
+    deps:
+    - path: data\processed\X_train.csv
+      hash: md5
+      md5: 0665a243a07d8f147a89e8656520e7a4
+      size: 7350
+    - path: data\processed\y_train.csv
+      hash: md5
+      md5: 7b915b09ce8a9a98b2f392cc6c933367
+      size: 134
+    - path: src\params.yaml
+      hash: md5
+      md5: 4f752d8557ac6c55aadeddb21aac3bf4
+      size: 2385
+    - path: src\train.py
+      hash: md5
+      md5: 3d484f19ad868f5afb476948a1aeef04
+      size: 1821
+    outs:
+    - path: models\lr_model.pkl
+      hash: md5
+      md5: 0713d8fb11ab04451b2bc69426d3cd89
+      size: 1855
+  train@clf:
+    cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\train.py
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\params.yaml 
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_train.csv
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_train.csv  clf
+    deps:
+    - path: data\processed\X_train.csv
+      hash: md5
+      md5: 0665a243a07d8f147a89e8656520e7a4
+      size: 7350
+    - path: data\processed\y_train.csv
+      hash: md5
+      md5: 7b915b09ce8a9a98b2f392cc6c933367
+      size: 134
+    - path: src\params.yaml
+      hash: md5
+      md5: 4f752d8557ac6c55aadeddb21aac3bf4
+      size: 2385
+    - path: src\train.py
+      hash: md5
+      md5: 3d484f19ad868f5afb476948a1aeef04
+      size: 1821
+    outs:
+    - path: models\clf_model.pkl
+      hash: md5
+      md5: 2a468f3ed26cfadc2f7bd8da1bd716f5
+      size: 2809
+  train@xgb:
+    cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\train.py
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\params.yaml 
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_train.csv
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_train.csv  xgb
+    deps:
+    - path: data\processed\X_train.csv
+      hash: md5
+      md5: 0665a243a07d8f147a89e8656520e7a4
+      size: 7350
+    - path: data\processed\y_train.csv
+      hash: md5
+      md5: 7b915b09ce8a9a98b2f392cc6c933367
+      size: 134
+    - path: src\params.yaml
+      hash: md5
+      md5: 4f752d8557ac6c55aadeddb21aac3bf4
+      size: 2385
+    - path: src\train.py
+      hash: md5
+      md5: 3d484f19ad868f5afb476948a1aeef04
+      size: 1821
+    outs:
+    - path: models\xgb_model.pkl
+      hash: md5
+      md5: 2280acd3451a06851990677a8cf5d56f
+      size: 13366
+  evaluate@lr:
+    cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\evaluate.py
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\models\lr_model.pkl C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_test.csv
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_test.csv
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\lr_evaluation.txt
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\lr_pred.csv lr
+    deps:
+    - path: data\processed\X_test.csv
+      hash: md5
+      md5: 9b456f8d3b4c2bb2b370a01ba927132c
+      size: 3466
+    - path: data\processed\y_test.csv
+      hash: md5
+      md5: 9aa504b8f958cdd615cb98fb3b7eb355
+      size: 65
+    - path: models\lr_model.pkl
+      hash: md5
+      md5: 0713d8fb11ab04451b2bc69426d3cd89
+      size: 1855
+    - path: src\evaluate.py
+      hash: md5
+      md5: a7dbeb92ed543359ce749adc6ebd8b23
+      size: 2195
+    outs:
+    - path: metrics\lr_metrics.json
+      hash: md5
+      md5: 06db6496b5fef68eb604725bdb976535
+      size: 177
+    - path: reports\lr_evaluation.txt
+      hash: md5
+      md5: a044276a1b64fa7058101fbce801dfab
+      size: 574
+    - path: reports\lr_pred.csv
+      hash: md5
+      md5: a8183685af7a5429373475497720271c
+      size: 103
+  evaluate@clf:
+    cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\evaluate.py
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\models\clf_model.pkl
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_test.csv
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_test.csv
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\clf_evaluation.txt
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\clf_pred.csv
+      clf
+    deps:
+    - path: data\processed\X_test.csv
+      hash: md5
+      md5: 9b456f8d3b4c2bb2b370a01ba927132c
+      size: 3466
+    - path: data\processed\y_test.csv
+      hash: md5
+      md5: 9aa504b8f958cdd615cb98fb3b7eb355
+      size: 65
+    - path: models\clf_model.pkl
+      hash: md5
+      md5: 2a468f3ed26cfadc2f7bd8da1bd716f5
+      size: 2809
+    - path: src\evaluate.py
+      hash: md5
+      md5: a7dbeb92ed543359ce749adc6ebd8b23
+      size: 2195
+    outs:
+    - path: metrics\clf_metrics.json
+      hash: md5
+      md5: 60edbaafefd683883f5fef52704f77c0
+      size: 165
+    - path: reports\clf_evaluation.txt
+      hash: md5
+      md5: 5cb074e6092a25211e2052c85628c5fa
+      size: 518
+    - path: reports\clf_pred.csv
+      hash: md5
+      md5: 91172b1fcc515ca1088c3bedac6920e9
+      size: 103
+  evaluate@xgb:
+    cmd: python C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\evaluate.py
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\models\xgb_model.pkl
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\X_test.csv
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\y_test.csv
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\xgb_evaluation.txt
+      C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\xgb_pred.csv
+      xgb
+    deps:
+    - path: data\processed\X_test.csv
+      hash: md5
+      md5: 9b456f8d3b4c2bb2b370a01ba927132c
+      size: 3466
+    - path: data\processed\y_test.csv
+      hash: md5
+      md5: 9aa504b8f958cdd615cb98fb3b7eb355
+      size: 65
+    - path: models\xgb_model.pkl
+      hash: md5
+      md5: 2280acd3451a06851990677a8cf5d56f
+      size: 13366
+    - path: src\evaluate.py
+      hash: md5
+      md5: a7dbeb92ed543359ce749adc6ebd8b23
+      size: 2195
+    outs:
+    - path: metrics\xgb_metrics.json
+      hash: md5
+      md5: 615d7a3f361b33878767f7c7fc8e66a4
+      size: 165
+    - path: reports\xgb_evaluation.txt
+      hash: md5
+      md5: 5cb074e6092a25211e2052c85628c5fa
+      size: 518
+    - path: reports\xgb_pred.csv
+      hash: md5
+      md5: 91172b1fcc515ca1088c3bedac6920e9
+      size: 103

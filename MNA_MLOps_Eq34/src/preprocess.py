@@ -38,7 +38,7 @@ def preprocess_data(data_path):
         # Dividir el dataset en conjuntos de entrenamiento y prueba
         X_train, X_test, y_train, y_test = train_test_split(
             X, y, test_size=config_params["data_split"]["test_size"], random_state=config_params["data_split"]["random_state"],
-            shuffle=config_params["data_split"]["shuffle"]
+            shuffle=config_params["data_split"]["shuffle"], stratify=y
         )
         return X_train, X_test, y_train, y_test
         

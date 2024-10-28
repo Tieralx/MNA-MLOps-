@@ -1,114 +1,58 @@
+params:
+- params.yaml
+- dvclive/params.yaml
 stages:
   load_data:
-    cmd: python ${data.syspath}src\data_load.py ${data.filepath} ${data.processed}train_test_data.csv
+    cmd: python ${data.srcpath}data_load.py ${data.filepath} ${data.processed}train_test_data.csv
     deps:
-    - ${data.syspath}src\data_load.py
+    - ${data.srcpath}data_load.py
     - ${data.filepath}
     outs:
     - ${data.processed}train_test_data.csv
 
   preprocess:
-    cmd: python ${data.syspath}src\preprocess.py ${data.processed}train_test_data.csv
-      ${data.syspath}src\params.yaml ${data.processed}X_train.csv ${data.processed}X_test.csv
+    cmd: python ${data.srcpath}preprocess.py ${data.processed}train_test_data.csv
+      ${data.srcpath}params.yaml ${data.processed}X_train.csv ${data.processed}X_test.csv
       ${data.processed}y_train.csv ${data.processed}y_test.csv
     deps:
-    - ${data.syspath}src\preprocess.py
+    - ${data.srcpath}preprocess.py
     - ${data.processed}train_test_data.csv
-    - ${data.syspath}src\params.yaml
+    - ${data.srcpath}params.yaml
     outs:
     - ${data.processed}X_train.csv
     - ${data.processed}X_test.csv
     - ${data.processed}y_train.csv
     - ${data.processed}y_test.csv
 
-  train_logistic:
-    cmd: python ${data.syspath}src\train.py ${data.syspath}src\params.yaml ${data.processed}X_train.csv
-      ${data.processed}y_train.csv lr
+  train:
+    matrix:
+      model: [lr, clf, xgb]
+
+    cmd: python ${data.srcpath}train.py ${data.srcpath}params.yaml ${data.processed}X_train.csv
+      ${data.processed}y_train.csv  ${item.model}
     deps:
-    - ${data.syspath}src\train.py
+    - ${data.srcpath}train.py
     - ${data.processed}X_train.csv
     - ${data.processed}y_train.csv
-    - ${data.syspath}src\params.yaml
-
+    - ${data.srcpath}params.yaml
     outs:
-    - ${data.models}lr_model.pkl
+    - ${data.models}${key}_model.pkl
 
-
-
-  train_clf:
-    cmd: python ${data.syspath}\src\train.py ${data.syspath}src\params.yaml ${data.processed}X_train.csv
-      ${data.processed}y_train.csv clf
+  evaluate:
+    matrix:
+      model: [lr, clf, xgb]
+    cmd: python ${data.srcpath}evaluate.py ${data.models}${item.model}_model.pkl ${data.processed}X_test.csv ${data.processed}y_test.csv ${data.reports}${item.model}_evaluation.txt ${data.reports}${item.model}_pred.csv ${item.model}
+      
     deps:
-    - ${data.syspath}src\train.py
-    - ${data.processed}X_train.csv
-    - ${data.processed}y_train.csv
-    - ${data.syspath}src\params.yaml
-
-    outs:
-    - ${data.models}clf_model.pkl
-
-
-
-  train_xgb:
-    cmd: python ${data.syspath}src\train.py ${data.syspath}src\params.yaml ${data.processed}X_train.csv
-      ${data.processed}y_train.csv xgb
-    deps:
-    - ${data.syspath}src\train.py
-    - ${data.processed}X_train.csv
-    - ${data.processed}y_train.csv
-    - ${data.syspath}src\params.yaml
-
-    outs:
-    - ${data.models}xgb_model.pkl
-
-
-  evaluate_lr:
-    cmd: python ${data.syspath}src\evaluate.py ${data.models}lr_model.pkl ${data.processed}X_test.csv
-      ${data.processed}y_test.csv ${data.reports}lr_evaluation.txt lr
-    deps:
-    - ${data.syspath}src\evaluate.py
-    - ${data.models}lr_model.pkl
+    - ${data.srcpath}evaluate.py
+    - ${data.models}${key}_model.pkl
     - ${data.processed}X_test.csv
     - ${data.processed}y_test.csv
     outs:
-    - ${data.reports}lr_evaluation.txt
-
+    - ${data.reports}${key}_evaluation.txt
+    - ${data.reports}${key}_pred.csv
     metrics:
-    - ${data.syspath}metrics\lr_metrics.json:
-        cache: false
+    - ${data.metrics}${key}_metrics.json
 
 
-  evaluate_clf:
-    cmd: python ${data.syspath}src\evaluate.py ${data.models}clf_model.pkl ${data.processed}X_test.csv
-      ${data.processed}y_test.csv ${data.reports}clf_evaluation.txt clf
-    deps:
-    - ${data.syspath}src\evaluate.py
-    - ${data.models}clf_model.pkl
-    - ${data.processed}X_test.csv
-    - ${data.processed}y_test.csv
-    outs:
-    - ${data.reports}clf_evaluation.txt
 
-    metrics:
-    - ${data.syspath}metrics\clf_metrics.json:
-        cache: false
-
-  
-
-
-  evaluate_xgb:
-    cmd: python ${data.syspath}src\evaluate.py ${data.models}xgb_model.pkl ${data.processed}X_test.csv
-      ${data.processed}y_test.csv ${data.reports}xgb_evaluation.txt xgb
-    deps:
-    - ${data.syspath}src\evaluate.py
-    - ${data.models}xgb_model.pkl
-    - ${data.processed}X_test.csv
-    - ${data.processed}y_test.csv
-    outs:
-    - ${data.reports}xgb_evaluation.txt
-
-    metrics:
-    - ${data.syspath}metrics\xgb_metrics.json:
-        cache: false
-
-    
