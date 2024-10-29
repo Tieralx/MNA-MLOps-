@@ -1,9 +1,8 @@
 data:
-  srcpath: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\
-  filepath: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\raw\sobar-72.csv
-  processed: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\
-  models: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\models\
-  reports: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\
-  plots: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\dvclive\plots\
-  metrics: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\metrics\
-  
+  srcpath: 'src\'
+  filepath: 'data\raw\sobar-72.csv'
+  processed: 'data\processed\'
+  models: 'models\'
+  reports: 'reports\'
+  plots: 'dvclive\plots\'
+  metrics: 'metrics\'
