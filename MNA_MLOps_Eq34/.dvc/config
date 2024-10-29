@@ -1,4 +1,6 @@
 [core]
-    remote = local_remote
+    remote = origin
 ['remote "local_remote"']
     url = C:\tmp_cases\DEV\mlops\DVC_track
+['remote "origin"']
+    url = https://github.com/Tieralx/MNA-MLOps-/tree/main/MNA_MLOps_Eq34
