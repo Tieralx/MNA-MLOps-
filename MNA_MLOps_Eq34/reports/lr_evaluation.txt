@@ -1,5 +1,5 @@
 Classification Report:
-{'0': {'precision': 0.8666666666666667, 'recall': 0.9285714285714286, 'f1-score': 0.896551724137931, 'support': 14.0}, '1': {'precision': 0.6666666666666666, 'recall': 0.5, 'f1-score': 0.5714285714285715, 'support': 4.0}, 'accuracy': 0.8333333333333334, 'macro avg': {'precision': 0.7666666666666666, 'recall': 0.7142857142857143, 'f1-score': 0.7339901477832513, 'support': 18.0}, 'weighted avg': {'precision': 0.8222222222222222, 'recall': 0.8333333333333334, 'f1-score': 0.8243021346469623, 'support': 18.0}}
+{'0': {'precision': 0.8666666666666667, 'recall': 0.9285714285714286, 'f1-score': 0.896551724137931, 'support': 14.0}, '1': {'precision': 0.6666666666666666, 'recall': 0.5, 'f1-score': 0.5714285714285714, 'support': 4.0}, 'accuracy': 0.8333333333333334, 'macro avg': {'precision': 0.7666666666666666, 'recall': 0.7142857142857143, 'f1-score': 0.7339901477832512, 'support': 18.0}, 'weighted avg': {'precision': 0.8222222222222222, 'recall': 0.8333333333333334, 'f1-score': 0.8243021346469622, 'support': 18.0}}
 Confusion Matrix:
 [[13  1]
  [ 2  2]]
