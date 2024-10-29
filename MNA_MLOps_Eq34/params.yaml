@@ -1,9 +1,8 @@
 data:
-  srcpath: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\src\
-  filepath: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\raw\sobar-72.csv
-  processed: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\
-  models: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\models\
-  reports: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\reports\
-  plots: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\dvclive\plots\
-  metrics: C:\tmp_cases\DEV\mlops\MLOps\MNA-MLOps-\MNA_MLOps_Eq34\metrics\
-  
+  srcpath: C:\Users\Comunicaciones 6\Documents\Andru\Eq_34\MNA-MLOps-\MNA_MLOps_Eq34\src\
+  filepath: C:\Users\Comunicaciones 6\Documents\Andru\Eq_34\MNA-MLOps-\MNA_MLOps_Eq34\data\raw\
+  processed: C:\Users\Comunicaciones 6\Documents\Andru\Eq_34\MNA-MLOps-\MNA_MLOps_Eq34\data\processed\
+  models: C:\Users\Comunicaciones 6\Documents\Andru\Eq_34\MNA-MLOps-\MNA_MLOps_Eq34\models\
+  reports: C:\Users\Comunicaciones 6\Documents\Andru\Eq_34\MNA-MLOps-\MNA_MLOps_Eq34\reports\
+  plots: C:\Users\Comunicaciones 6\Documents\Andru\Eq_34\MNA-MLOps-\MNA_MLOps_Eq34\dvclive\plots\
+  metrics: C:\Users\Comunicaciones 6\Documents\Andru\Eq_34\MNA-MLOps-\MNA_MLOps_Eq34\metrics\
