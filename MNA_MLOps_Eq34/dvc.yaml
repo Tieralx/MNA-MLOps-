@@ -1,6 +1,7 @@
 params:
 - params.yaml
 - dvclive/params.yaml
+
 stages:
   load_data:
     cmd: python ${data.srcpath}data_load.py ${data.filepath} ${data.processed}train_test_data.csv
@@ -41,7 +42,8 @@ stages:
   evaluate:
     matrix:
       model: [lr, clf, xgb]
-    cmd: python ${data.srcpath}evaluate.py ${data.models}${item.model}_model.pkl ${data.processed}X_test.csv ${data.processed}y_test.csv ${data.reports}${item.model}_evaluation.txt ${data.reports}${item.model}_pred.csv ${item.model}
+    cmd: python ${data.srcpath}evaluate.py ${data.models}${item.model}_model.pkl ${data.processed}X_test.csv ${data.processed}y_test.csv ${data.reports}${item.model}_evaluation.txt ${data.reports}${item.model}_pred.csv 
+         ${data.srcpath}params.yaml ${item.model}
       
     deps:
     - ${data.srcpath}evaluate.py
@@ -55,4 +57,17 @@ stages:
     - ${data.metrics}${key}_metrics.json
 
 
+
+
+plots:
+- 0 vs ca_cervix:
+    template: confusion
+    x: "0\r"
+    y:
+      reports\lr_pred.csv: ca_cervix
+- 0 vs ca_cervix:
+      template: confusion
+      x: "0\r"
+      y:
+          reports\xgb_pred.csv: ca_cervix
 
