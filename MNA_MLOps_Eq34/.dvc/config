@@ -1,7 +1,4 @@
 [core]
-    remote = origin
-    autostage = true
+    remote = local_remote
 ['remote "local_remote"']
-    url = C:\tmp_cases\DEV\mlops\DVC_track
-['remote "origin"']
     url = C:\tmp_cases\DEV\mlops\DVC_track

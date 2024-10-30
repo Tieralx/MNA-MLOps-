@@ -292,7 +292,7 @@ stages:
     outs:
     - path: models\clf_model.pkl
       hash: md5
-      md5: 2a468f3ed26cfadc2f7bd8da1bd716f5
+      md5: 6199d7f0dba8f9e982b147d36ce93b64
       size: 2809
   train@xgb:
     cmd: python src\train.py src\params.yaml data\processed\X_train.csv data\processed\y_train.csv  xgb
@@ -316,7 +316,7 @@ stages:
     outs:
     - path: models\xgb_model.pkl
       hash: md5
-      md5: 2280acd3451a06851990677a8cf5d56f
+      md5: cb561dfc22740b583646b6912c367a2a
       size: 13366
   evaluate@lr:
     cmd: python src\evaluate.py models\lr_model.pkl data\processed\X_test.csv data\processed\y_test.csv
@@ -365,7 +365,7 @@ stages:
       size: 65
     - path: models\clf_model.pkl
       hash: md5
-      md5: 2a468f3ed26cfadc2f7bd8da1bd716f5
+      md5: 6199d7f0dba8f9e982b147d36ce93b64
       size: 2809
     - path: src\evaluate.py
       hash: md5
@@ -398,7 +398,7 @@ stages:
       size: 65
     - path: models\xgb_model.pkl
       hash: md5
-      md5: 2280acd3451a06851990677a8cf5d56f
+      md5: cb561dfc22740b583646b6912c367a2a
       size: 13366
     - path: src\evaluate.py
       hash: md5

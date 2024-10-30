@@ -1,7 +1,12 @@
 {
 	"folders": [
 		{
-			"path": "../.."
+			"path": ".."
 		}
-	]
+	],
+	"extensions": {
+		"recommendations": [
+			"github.remotehub"
+		]
+	}
 }
